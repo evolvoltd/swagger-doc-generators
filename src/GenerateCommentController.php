@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Evolvo\SwaggerDocGenerators;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-class GenereateCommentController extends Command
+class GenerateCommentController extends Command
 {
     /**
      * The name and signature of the console command.

@@ -2,10 +2,6 @@
 
 namespace Evolvo\SwaggerDocGenerators;
 
-use App\Console\Commands\ApplyCustomDocumentationStyle;
-use App\Console\Commands\GenerateComment;
-use App\Console\Commands\GenereateCommentController;
-use App\Console\Commands\RemoveCustomDocumentationStyle;
 use Illuminate\Support\ServiceProvider;
 
 class SwaggerDocGeneratorsServiceProvider extends ServiceProvider
@@ -22,7 +18,7 @@ class SwaggerDocGeneratorsServiceProvider extends ServiceProvider
                 ApplyCustomDocumentationStyle::class,
                 RemoveCustomDocumentationStyle::class,
                 GenerateComment::class,
-                GenereateCommentController::class
+                GenerateCommentController::class
             ]);
         }
     }

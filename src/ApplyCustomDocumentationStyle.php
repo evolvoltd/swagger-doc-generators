@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Evolvo\SwaggerDocGenerators;
 
 use Illuminate\Console\Command;
 
