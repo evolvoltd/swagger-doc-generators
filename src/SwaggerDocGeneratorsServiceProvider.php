@@ -1,6 +1,6 @@
 <?php
 
-namespace Evolvo\LaravelCodeGenerators;
+namespace Evolvo\SwaggerDocGenerators;
 
 use App\Console\Commands\ApplyCustomDocumentationStyle;
 use App\Console\Commands\GenerateComment;
