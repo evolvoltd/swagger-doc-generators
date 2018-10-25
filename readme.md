@@ -8,7 +8,7 @@ The `swagger-doc-generators` package allows you to create comments from validati
 ## Installation
 Require the `evolvo/swagger-doc-generators` package in your `composer.json` and update your dependencies:
 ```sh
-$ composer require evolvo/laravel-code-generators
+$ composer require evolvo/swagger-doc-generators
 ```
 
 add 
