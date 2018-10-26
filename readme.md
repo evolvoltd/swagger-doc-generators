@@ -8,7 +8,7 @@ The `swagger-doc-generators` package allows you to create comments from validati
 ## Installation
 Require the `evolvo/swagger-doc-generators` package in your `composer.json` and update your dependencies:
 ```sh
-$ composer require evolvo/swagger-doc-generators "1.0.3"
+$ composer require evolvo/swagger-doc-generators "1.0.4"
 ```
 
 add 
@@ -60,7 +60,9 @@ class Controller extends BaseController
 
 add to .env file:
 
-`L5_SWAGGER_GENERATE_ALWAYS=TRUE`
+`L5_SWAGGER_GENERATE_ALWAYS=TRUE`.
+
+Default preview route is `http://your-address.com/api/documentation`, but you can change it in configuration.
 
 ## Usage
 Run `php artisan comment {METHOD::route}` to generate comment for route. You can specify multiple routes.
@@ -80,13 +82,13 @@ For controller
 
 
 ## Custom documentation style
-Run `swagger-custom-style:apply` to apply custom style.
+Run `php artisan swagger-custom-style:apply` to apply custom style.
 After that go to `config/l5-swagger.php` and change style in `css` array.
 
 Example
 ![alt text](src/images/custom-style-example.png)
 
-Run `swagger-custom-style:remove` to remove custom style.
+Run `php artisan swagger-custom-style:remove` to remove custom style.
 
 ## Links and examples
 Swagger PHP: [here]
