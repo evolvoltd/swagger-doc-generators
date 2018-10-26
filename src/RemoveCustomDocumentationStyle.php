@@ -35,15 +35,15 @@ class RemoveCustomDocumentationStyle extends Command
         if(!preg_match("/css/", $configFile) || !preg_match("/custom-style/", $viewFile)) {
             $this->error("There is nothing to remove. Apply custom documentation with: php artisan swagger-custom-style:apply.");
         } else {
-            $removeConfig = preg_replace("/[\/][\/] Custom css(\n.*)*.Custom css end/", "", $configFile);
+            $removeConfig = preg_replace("/[\/][\/] Custom css((\n|\r|\n\r).*)*.Custom css end/", "", $configFile);
             file_put_contents($configFilePath, $removeConfig);
 
-            $removeStyle = preg_replace("/{{-- Custom Style --}}(\r\n.*)*{{-- Custom Style end --}}/", "", $viewFile);
+            $removeStyle = preg_replace("/{{-- Custom Style --}}((\n|\r|\n\r).*)*{{-- Custom Style end --}}/", "", $viewFile);
             file_put_contents($viewFilePath, $removeStyle);
 
             $viewFile = $removeStyle;
 
-            $removeJs = preg_replace("/[\/][\/] # Custom JS(\r\n.*)*# Custom JS end/", "", $viewFile);
+            $removeJs = preg_replace("/[\/][\/] # Custom JS((\n|\r|\n\r).*)*# Custom JS end/", "", $viewFile);
             file_put_contents($viewFilePath, $removeJs);
             $this->info("Custom documentation style removed.");
         }

@@ -42,14 +42,14 @@ class ApplyCustomDocumentationStyle extends Command
 
             $styleEndPosition = strpos($viewFile, "</style>");
             $customStylePosition = $styleEndPosition + 8;
-            $newStyle = substr_replace($viewFile, file_get_contents(app_path("Console/Commands/Templates/custom-style.tpl")), $customStylePosition, 0);
+            $newStyle = substr_replace($viewFile, file_get_contents(__DIR__ ."/Templates/custom-style.tpl"), $customStylePosition, 0);
             file_put_contents($viewFilePath, $newStyle);
 
             $viewFile = $newStyle;
 
-            $jsEndPosition = strpos($viewFile, "window.ui = ui;");
-            $customJsPosition = $jsEndPosition + 15;
-            $newJs = substr_replace($viewFile, file_get_contents(app_path("Console/Commands/Templates/custom-style-js.tpl")), $customJsPosition, 0);
+            $jsEndPosition = strpos($viewFile, "window.ui = ui");
+            $customJsPosition = $jsEndPosition + 14;
+            $newJs = substr_replace($viewFile, file_get_contents(__DIR__ ."/Templates/custom-style-js.tpl"), $customJsPosition, 0);
             file_put_contents($viewFilePath, $newJs);
 
             $this->info("Custom style config added to config/l5-swagger.php file.");

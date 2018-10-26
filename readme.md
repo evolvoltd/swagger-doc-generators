@@ -1,4 +1,4 @@
-# Swagger 5.7 comments generator
+# Swagger 5.7 auto comments generator for Laravel
 
 ## About
 The `swagger-doc-generators` package allows you to create comments from validation classes for swagger documentation.
@@ -13,10 +13,49 @@ $ composer require evolvo/swagger-doc-generators
 
 add 
 ```sh
-Evolvo\SwaggerDocGenerators\SwaggerDocGeneratorsServiceProvider::class
+Evolvo\SwaggerDocGenerators\SwaggerDocGeneratorsServiceProvider::class,
+L5Swagger\L5SwaggerServiceProvider::class,
 ```
 to config/app.php 'providers' array
 
+If you don't have swagger config and view files:
+------------------------
+Run:
+```sh
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+```
+
+Add to app/Http/Controllers/Controller.php:
+```php
+/**
+ * @OA\Info(
+ *      version="1.0.0",
+ *      title="L5 OpenApi",
+ *      description="L5 Swagger OpenApi description",
+ *     @OA\License(
+ *         name="Apache 2.0",
+ *         url="http://www.apache.org/licenses/LICENSE-2.0.html"
+ *     )
+ * )
+ */
+/*
+ * @SWG\SecurityScheme(
+ *   securityDefinition="passport",
+ *   type="oauth2",
+ *   tokenUrl="/oauth/token",
+ *   flow="password",
+ *   scopes={}
+ * )
+ */
+class Controller extends BaseController
+{
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+}
+```
+
+Add to .env file:
+
+`L5_SWAGGER_GENERATE_ALWAYS=TRUE`
 
 ## Usage
 Run `php artisan comment {METHOD::route}` to generate comment for route. You can specify multiple routes.
