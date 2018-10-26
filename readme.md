@@ -14,16 +14,21 @@ $ composer require evolvo/swagger-doc-generators
 add 
 ```sh
 Evolvo\SwaggerDocGenerators\SwaggerDocGeneratorsServiceProvider::class,
-L5Swagger\L5SwaggerServiceProvider::class,
 ```
-to config/app.php 'providers' array
+to config/app.php 'providers' array.
 
-If you don't have swagger config and view files:
-------------------------
+####If you don't have swagger config and view files:
+
 Run:
 ```sh
 php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
 ```
+
+then add 
+```sh
+L5Swagger\L5SwaggerServiceProvider::class,
+```
+to config/app.php 'providers' array.
 
 Add to app/Http/Controllers/Controller.php:
 ```php
@@ -53,7 +58,7 @@ class Controller extends BaseController
 }
 ```
 
-Add to .env file:
+add to .env file:
 
 `L5_SWAGGER_GENERATE_ALWAYS=TRUE`
 
@@ -82,6 +87,22 @@ Example
 ![alt text](src/images/custom-style-example.png)
 
 Run `swagger-custom-style:remove` to remove custom style.
+
+## Links and examples
+Swagger PHP: [here]
+
+More about swagger for laravel: [l5-swagger].
+
+L5-swagger documentation example: [pet store].
+
+Pet store code example: [link].
+
+Our company: http://evolvo.eu.
+
+[here]: http://zircote.com/swagger-php/
+[l5-swagger]: https://github.com/DarkaOnLine/L5-Swagger
+[pet store]: https://petstore.swagger.io/
+[link]: https://github.com/zircote/swagger-php/tree/master/Examples/petstore-3.0
 
 
 
