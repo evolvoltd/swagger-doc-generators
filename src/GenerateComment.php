@@ -350,7 +350,7 @@ class GenerateComment extends Command
             case "phone":
                 return '"'.$faker->phoneNumber.'"';
             case "nullable":
-                return null;
+                return 'null';
             default:
                 return '""';
         }
