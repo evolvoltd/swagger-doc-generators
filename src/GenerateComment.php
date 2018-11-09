@@ -158,6 +158,7 @@ class GenerateComment extends Command
     private function template($mainPath, $rules = [], $path = null, $method)
     {
         $parameters = $method == "GET" ? $this->queryParameters($rules, $path) : $this->bodyParameters($rules, $path);
+        $method = ucfirst(strtolower($method));
         return
     "
     /**
