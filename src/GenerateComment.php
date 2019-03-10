@@ -66,6 +66,7 @@ class GenerateComment extends Command
         } else {
             foreach ($routes as $route) {
                 $classFileName = str_replace("\\", "/", $route["controller"].".php");
+                $classFileName = str_replace("App", "app", $classFileName);
                 $classFile = file_get_contents(base_path($classFileName));
                 $routeFunction = $route["function"];
                 $routeUri = $route["uri"];
