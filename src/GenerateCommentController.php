@@ -50,6 +50,9 @@ class GenerateCommentController extends Command
 
                     $routeFunction = explode('@', $action)[1];
 
+                    $controller = explode('/', $controller);
+                    $controller = end($controller);
+
                     if($controllerName == $controller && in_array($routeFunction, $functions)) {
                         $calls[] = $route->methods[0]."::".$route->uri;
                         $functions = array_diff($functions, [$routeFunction]);
